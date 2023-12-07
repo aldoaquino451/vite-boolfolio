@@ -2,12 +2,17 @@
 import axios from 'axios';
 import { store } from './data/store';
 import ProjectCard from './components/ProjectCard.vue';
+import Header from './components/Header.vue';
+import { RouterLink, RouterView } from 'vue-router';
 
 export default {
   name: 'App',
   components: {
-    ProjectCard
-  },
+    ProjectCard,
+    Header,
+    RouterLink,
+    RouterView
+},
   data() {
     return {
       store,
@@ -16,7 +21,7 @@ export default {
   },
   methods: {
     getApi() {
-      axios.get('http://127.0.0.1:8000/api/projects')
+      axios.get(store.apiUrl)
         .then( res => {
           console.log(res.data.data);  
           this.projects = res.data.data;
@@ -24,18 +29,15 @@ export default {
     }
   },
   mounted() {
-    this.getApi();
+    this.getApi(); 
   },
 
 }
 </script>
 
 <template>
-
-  <header>
-    <h2>Header</h2> 
-  </header>
-
+  <Header />
+  <RouterView />
   <main>
     <div class="container">
       <h1>Welcome to Vue</h1>
@@ -46,6 +48,7 @@ export default {
           :project="project"
           />
       </div>
+      
     </div>
   </main>
 
@@ -77,6 +80,6 @@ main {
       row-gap: 60px;
       column-gap: 30px;
     }
-  }
+  } 
 }
 </style>
