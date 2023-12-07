@@ -17,7 +17,12 @@ export default {
         <RouterLink :to="{name: 'home'}">Home</RouterLink>
       </li>
       <li>
-
+        <RouterLink :to="{name: 'projects'}">Progetti</RouterLink>
+      </li>
+      <li>
+        <RouterLink :to="{name: 'contacts'}">Contatti</RouterLink>
+      </li>
+      <li>
         <RouterLink :to="{name: 'about'}">About</RouterLink>
       </li>
     </ul>
@@ -26,4 +31,10 @@ export default {
 
 <style lang="scss">
   
+header {
+  height: 80px;
+  padding: 10px 50px;
+  display: flex;
+  align-items: center;
+}
 </style>
