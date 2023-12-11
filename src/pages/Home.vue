@@ -1,9 +1,6 @@
 <script>
   export default {
     name: 'ProjectCard',
-    props: {
-      project: Object
-    },
     data() {
       return {}
     },

@@ -11,12 +11,13 @@ export default {
   data() {
     return {
       store,
+      endpoint: '/projects',
       projects: []
     }
   },
   methods: {
     getApi() {
-      axios.get(store.apiUrl)
+      axios.get(store.apiUrl + this.endpoint)
         .then( res => {
           this.projects = res.data.data;
         })
@@ -32,13 +33,14 @@ export default {
 
 <template>
   <div>
-    <h1>Welcome to Vue</h1>
+    <h2>Progetti</h2>
     <div class="cards">
-      <ProjectCard
-        v-for="project in projects"
-        :key="project.id" 
-        :project="project"
-        />
+        <ProjectCard
+          v-for="project in projects"
+          :key="project.id" 
+          :project="project"
+          :slug="project.slug"
+          />
     </div>
   </div>
 </template>

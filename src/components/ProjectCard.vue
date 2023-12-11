@@ -1,23 +1,26 @@
 <script>
-  export default {
-    name: 'ProjectCard',
-    props: {
-      project: Object
-    },
-    data() {
-      return {}
-    },
-    computed: {},
-    mounted() {},
-    methods: {}
-  }
+import { store } from '@/data/store';
+export default {
+  name: 'ProjectCard',
+  props: {
+    project: Object
+  },
+  data() {
+    return {}
+  },
+  computed: {},
+  mounted() {},
+  methods: {}
+}
 </script>
 
 <template>
   <div class="card">
     
     <h3>
-      {{ project.name }}
+      <RouterLink :to="{name: 'projectDetails', params:{slug: project.slug}}">
+        <h3>{{ project.name }}</h3>
+      </RouterLink>
     </h3>
 
     <p class="date">
